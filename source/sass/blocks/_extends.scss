@@ -1,0 +1,83 @@
+%section-title {
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  font-size: 1.625rem;
+  line-height: 120%;
+
+  text-align: center;
+
+  color: rgba(var(--w-clr), 1);
+
+  & > span {
+    color: rgba(var(--r-clr), 1);
+  }
+}
+
+%default-text {
+  color: rgba(var(--w-clr), .6);
+
+  font-size: var(--text-sm);
+  font-weight: 500;
+  line-height: 150%;
+}
+
+%section-heading {
+  --section-heading-m: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1.5rem;
+
+  @include m(b, var(--section-heading-m));
+
+  text-align: center;
+}
+
+%more-btn {
+  border: 1px solid rgba(var(--w-clr), .1);
+
+  border-radius: .75rem;
+
+  width: 100%;
+
+  @include dfc;
+
+  @include tr(200);
+  @include m(t, 1.25rem);
+
+  padding: 0.875rem;
+
+  span {
+    @extend %default-text;
+
+    color: rgba(var(--w-clr), .8);
+  }
+
+  @include hover {
+    &:hover {
+      background-color: rgba(var(--w-clr), .1);
+
+      border: 1px solid transparent;
+    }
+  }
+  &:active {
+    background-color: rgba(var(--w-clr), .05);
+  }
+}
+
+@include min-w($mob-mq) {
+  %section-heading {
+    --section-heading-m: 3rem;
+  }
+  %section-title {
+    font-size: var(--text-5xl);
+  }
+  %default-text {
+    font-size: var(--text-base);
+  }
+  %more-btn {
+    padding: 1.25rem;
+
+    border-radius: 1rem;
+  }
+}

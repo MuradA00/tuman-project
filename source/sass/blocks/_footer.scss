@@ -1,0 +1,105 @@
+.footer {
+  --link-svg-ratio: 1.5rem;
+
+  &__flex {
+    @include fl(column-reverse, var(--flex-align), 1.5rem);
+  }
+  &__body {
+    padding: 2rem 0 max(2.75vw, 2.75rem) 0;
+
+    border-top: 1px solid rgba(var(--w-clr), .1);
+
+    max-width: 80.625rem;
+  }
+  &__col {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 2rem;
+
+    span {
+      font-weight: 700;
+    }
+
+    &--links {
+      justify-content: space-between;
+    }
+  }
+  &__badge {
+    max-width: 8.375rem;
+  }
+  &__logo {
+    width: max-content;
+  }
+  &__bottom {
+    align-items: flex-end;
+  }
+  &__rights {
+    width: 100%;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 2rem;
+  }
+  &__logo {
+    @include fl(row, center, 1rem);
+
+    p {
+      line-height: 121.875%;
+    }
+  }
+  &__links {
+    justify-content: space-between;
+  }
+  &__row {
+    @include fl(column, unset, 1.25rem);
+  }
+  &__row-col {
+    flex: 1;
+  }
+}
+
+@include min-w($mob-mq) {
+  .footer {
+    &__row {
+      flex-direction: row;
+    }
+  }
+}
+
+@include min-w($tab-mq) {
+  .footer {
+    &__flex {
+      flex-direction: row;
+      grid-gap: clamp(5rem, 15.125vw, 15.125rem);
+    }
+  }
+}
+
+.socials {
+  @include fl(row, center, 1rem);
+
+  &__item {
+    height: var(--link-svg-ratio);
+  }
+  &__link {
+    svg {
+      fill: rgba(var(--w-clr), 1);
+
+      @include tr(300);
+
+      width: var(--link-svg-ratio);
+      height: var(--link-svg-ratio);
+    }
+
+    @include hover {
+      &:hover {
+        svg {
+          fill: rgba(var(--r-clr), .8);
+
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

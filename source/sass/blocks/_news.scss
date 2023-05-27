@@ -1,0 +1,104 @@
+.news {
+  --news-grid-cols: 1;
+  --news-grid-gap: 1rem;
+  --news-item-h: 15rem;
+  --news-item-pb: 1.5rem;
+  --news-item-px: 1rem;
+
+  &__heading {
+    @extend %section-heading;
+  }
+  &__title {
+    @extend %section-title;
+  }
+  &__grid {
+    @include grid-cols(var(--news-grid-cols), var(--news-grid-gap));
+  }
+  &__grid-item {
+    padding: 1rem var(--news-item-px) var(--news-item-pb) var(--news-item-px);
+
+    background-color: rgba(var(--w-clr), .04);
+
+    border-radius: 1.5rem;
+  }
+  &__item-image {
+    width: 100%;
+    height: var(--news-item-h);
+
+    border-radius: 1rem;
+
+    overflow: hidden;
+
+    @include m(b, 1.5rem);
+
+    position: relative;
+
+    img, picture, svg {
+      width: 100%;
+      height: 100%;
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      @include tr(400);
+    }
+
+    @include hover {
+      &:hover {
+        img, picture, svg {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+  &__item-info {
+    padding: 0 0.625rem;
+
+    display: flex;
+    flex-direction: column;
+    grid-gap: 1rem;
+  }
+  &__item-name {
+    @include hide-text(2);
+
+    font-size: var(--text-lg);
+    font-weight: 600;
+    line-height: 133.333333%;
+  }
+  &__more {
+    @extend %more-btn;
+  }
+}
+
+@include min-w($mob-mq) {
+  .news {
+    --news-grid-cols: 2;
+    --news-grid-gap: 1.25rem;
+    --news-item-pb: 2rem;
+    --news-item-px: 1rem;
+
+    &__item-name {
+      font-size: var(--text-xl);
+    }
+  }
+}
+
+@include min-w($desk-xs-mq) {
+  .news {
+    --news-grid-cols: 3;
+    --news-item-pb: 3rem;
+    --news-item-px: 1rem;
+
+    &__item-info {
+      padding: 0 1rem;
+    }
+  }
+}
+
+@include min-w($desk-sm-mq) {
+  .news {
+    --news-grid-cols: 4;
+  }
+}

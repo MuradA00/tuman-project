@@ -1,0 +1,26 @@
+.filter {
+  @include fl(row, center, 0.5rem);
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__btn {
+    padding: 0.75rem 1rem;
+
+    border-radius: 3rem;
+
+    @extend %default-text;
+
+    background-color: rgba(var(--w-clr), .02);
+
+    @include tr(200);
+
+    @include hover {
+      &:hover {
+        background-color: rgba(var(--w-clr), .04);
+      }
+    }
+    &:active {
+      background-color: rgba(var(--w-clr), .1);
+    }
+  }
+}

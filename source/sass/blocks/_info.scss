@@ -1,0 +1,108 @@
+.info {
+  --box-heading-icon-ratio: 3rem;
+  --box-py: 2rem;
+  --box-px: 1rem;
+  --radius: 1rem;
+  --block-m: 2.5rem;
+  --row-grid-cols: 1;
+  --row-grid-gap: 1.25rem;
+
+  &__box {
+    padding: var(--box-py) var(--box-px);
+
+    background-color: rgba(var(--w-clr), .04);
+
+    border-radius: var(--radius);
+
+    p {
+      &:not(:last-child) {
+        @include m(b, 1.5rem);
+      }
+    }
+  }
+  &__text-container {
+    max-width: 63.625rem;
+  }
+  &__block {
+    &:not(:last-child) {
+      @include m(b, var(--block-m));
+    }
+
+    &--row {
+      @include grid-cols(var(--row-grid-cols), var(--row-grid-gap));
+    }
+  }
+  &__more {
+    @extend %more-btn;
+  }
+  &__box-heading {
+    @include fl(column, flex-start, .5rem);
+
+    flex-wrap: wrap;
+
+    @include m(b, 2rem);
+  }
+  &__box-heading-icon {
+    width: var(--box-heading-icon-ratio);
+    height: var(--box-heading-icon-ratio);
+
+    flex: 0 0 auto;
+  }
+  &__title {
+    @extend %section-title;
+
+    text-align: left;
+  }
+  &__col-heading {
+    --line-w: 4rem;
+    --line-h: 0.125rem;
+    --line-margin: 1rem;
+
+    font-size: var(--text-xl);
+    font-weight: 500;
+
+    position: relative;
+
+    @include m(b, calc(1.5rem + var(--line-margin) + var(--line-h)));
+
+    &::after {
+      @include pseudo;
+
+      width: var(--line-w);
+      height: var(--line-h);
+
+      left: 0;
+      bottom: calc(-1 * var(--line-margin));
+
+      background-image: var(--pink-gradient);
+    }
+  }
+}
+
+@include min-w($mob-mq) {
+  .info {
+    --box-heading-icon-ratio: 5.5rem;
+    --box-py: 3rem;
+    --box-px: 2rem;
+    --radius: 1.5rem;
+    --block-m: 4rem;
+    --row-grid-gap: 2.25rem;
+
+    &__box-heading {
+      flex-direction: row;
+
+      align-items: center;
+
+      @include m(b, 3rem);
+    }
+    &__more {
+      margin-top: 4rem;
+    }
+  }
+}
+
+@include min-w($tab-mq) {
+  .info {
+    --row-grid-cols: 2;
+  }
+}

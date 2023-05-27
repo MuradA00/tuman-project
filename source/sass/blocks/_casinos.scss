@@ -1,0 +1,120 @@
+.casinos {
+  --logo-bg: 7, 11, 42;
+  --item-logo-w: 14.5rem;
+  --item-logo-h: 15rem;
+  --item-logo-m: 1.5rem;
+  --item-radius: 1.25rem;
+
+  &__grid {
+    @include grid-cols(var(--casinos-grid-cols), var(--casinos-grid-gap));
+  }
+  &__grid-item {
+    background-color: rgba(var(--w-clr), .04);
+
+    border-radius: var(--item-radius);
+
+    padding: var(--casinos-item-py) var(--casinos-item-px);
+
+    border: 1px solid rgba(var(--w-clr), .1);
+
+    position: relative;
+  }
+  &__rating {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    border-radius: 0 var(--item-radius) 0 var(--item-radius);
+
+    background-image: var(--rating-gradient);
+
+    padding: 0.75rem 1.5rem;
+
+    @include fl(row, center, 0.5rem);
+
+    min-width: 11.375rem;
+    max-width: 11.375rem;
+
+    @include dfc;
+
+    & > span {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      line-height: 146.666667%;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+
+      max-width: 3.75rem;
+    }
+  }
+  &__heading {
+    @extend %section-heading;
+
+    max-width: 57.625rem;
+
+    @include m-auto;
+  }
+  &__title {
+    @extend %section-title;
+  }
+  &__rating-value {
+    font-size: var(--text-3xl);
+    font-weight: 800;
+  }
+  &__item-logo {
+    background-color: rgba(var(--logo-bg), 1);
+
+    border-radius: 1rem;
+
+    @include dfc;
+
+    min-height: var(--item-logo-h);
+
+    @include m(b, var(--item-logo-m));
+
+    img, picture, svg {
+      width: fit-content;
+      max-width: var(--item-logo-w);
+    }
+  }
+  &__actions {
+    @include dfc;
+    flex-wrap: wrap;
+    grid-gap: 0.5rem;
+  }
+  &__item-info {
+    text-align: center;
+
+    @include fl(column, center, 1.5rem);
+  }
+  &__item-name {
+    font-size: var(--text-xl);
+    font-weight: 600;
+  }
+  &__pay-btn {
+    @include btn(var(--main-btn-py), var(--main-btn-px), var(--pink-gradient));
+  }
+  &__overview-btn {
+    @include btn(var(--main-btn-py), var(--main-btn-px), var(--dark-btn-clr));
+  }
+  &__more {
+    @extend %more-btn;
+  }
+}
+
+@include min-w($mob-mq) {
+  .casinos {
+    --item-logo-m: 3rem;
+
+    &__heading {
+      --section-heading-m: 4rem;
+    }
+  }
+}
+
+@include min-w($desk-xs-mq) {
+  .casinos {
+    --item-radius: 1.5rem;
+  }
+}

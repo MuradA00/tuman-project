@@ -1,0 +1,48 @@
+.nav {
+  --svg-ratio: 1.5rem;
+
+  display: none;
+
+  &__list {
+    @include fl(row, center, 0);
+  }
+  &__link {
+    padding: 0.75rem 1rem;
+
+    @include fl(row, center, 0.5rem);
+
+    span {
+      font-size: var(--text-base);
+      font-weight: 500;
+
+      color: rgba(var(--w-clr), .8);
+
+      @include tr(300);
+    }
+    svg {
+      width: var(--svg-ratio);
+      height: var(--svg-ratio);
+
+      fill: rgba(var(--w-clr), .4);
+
+      @include tr(300);
+    }
+
+    @include hover {
+      &:hover {
+        span {
+          color: rgba(var(--w-clr), 1);
+        }
+        svg {
+          fill: rgba(var(--r-clr), 1);
+        }
+      }
+    }
+  }
+}
+
+@include min-w($desk-xs-mq) {
+  .nav {
+    display: block;
+  }
+}

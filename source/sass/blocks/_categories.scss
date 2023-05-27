@@ -1,0 +1,110 @@
+.categories {
+  --categories-grid-cols: 1;
+  --categories-grid-gap: 1rem;
+  --item-h: 10rem;
+  --item-py: 2rem;
+  --item-px: 1rem;
+
+  &__grid {
+    @include grid-cols(var(--categories-grid-cols), var(--categories-grid-gap));
+  }
+  &__grid-item {
+    background-color: rgba(var(--w-clr), .04);
+
+    border-radius: 1.5rem;
+
+    padding: var(--item-py) var(--item-px);
+
+    border: 1px solid transparent;
+
+    @include tr(300);
+
+    @include hover {
+      &:hover {
+        border: 1px solid rgba(var(--r-clr), 1);
+      }
+    }
+  }
+  &__heading {
+    @extend %section-heading;
+  }
+  &__title {
+    @extend %section-title;
+  }
+  &__item-name {
+    font-weight: 600;
+    font-size: var(--text-lg);
+
+    @include m(b, 1.5rem);
+  }
+  &__read-more {
+    @include btn(var(--main-btn-py), var(--main-btn-px), var(--dark-btn-clr));
+  }
+  &__more {
+    @extend %more-btn;
+  }
+  &__item-image {
+    height: var(--item-h);
+
+    @include dfc;
+
+    @include m(b, 2rem);
+
+    position: relative;
+
+    img, picture, svg {
+      max-width: 15.375rem;
+
+      @include m-auto;
+
+      width: var(--item-image-w);
+
+      position: absolute;
+
+      @include center;
+    }
+  }
+  &__item-info {
+    text-align: center;
+  }
+  &__search-bar {
+    max-width: 53rem;
+
+    @include m-auto;
+    @include m(b, 4.875rem);
+  }
+}
+
+@include min-w($mob-mq) {
+  .categories {
+    --categories-grid-cols: 2;
+    --item-py: 2.5rem;
+    --item-h: 15rem;
+
+    &__item-image {
+      @include m(b, 3rem);
+
+      img, picture, svg {
+        max-width: 15.375rem;
+      }
+    }
+    &__item-name {
+      font-size: var(--text-xl);
+    }
+  }
+}
+
+@include min-w($tab-mq) {
+  .categories {
+    --categories-grid-cols: 3;
+    --categories-grid-gap: 1.25rem;
+    --item-py: 3rem;
+    --item-px: 2rem;
+  }
+}
+
+@include min-w($desk-xs-mq) {
+  .categories {
+    --categories-grid-cols: 4;
+  }
+}

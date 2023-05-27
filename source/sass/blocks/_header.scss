@@ -1,0 +1,164 @@
+$hamburger-color: rgba(var(--w-clr), 1);
+$hamburger-width: 3.125rem;
+$hamburger-height: 3.125rem;
+
+.header {
+  --header-pt: .75rem;
+  --header-pb: 1rem;
+  --logo-w: 7rem;
+
+  padding: var(--header-pt) 0 var(--header-pb) 0;
+  &__row {
+    @include fl(row, center, 0);
+  }
+  &__navigation {
+    @include fl(row, center, 0);
+
+    margin-left: auto;
+  }
+  &__logo {
+    max-width: var(--logo-w);
+  }
+  &__options {
+    @include fl(row, center, .5rem);
+
+    margin-left: unset;
+  }
+  &__log-in {
+    @include btn(var(--main-btn-py), var(--main-btn-px), var(--dark-btn-clr));
+
+    display: none;
+  }
+  &__more-btn {
+    height: 3rem;
+    width: 3rem;
+
+    aspect-ratio:  1 / 1;
+
+    border-radius: 50%;
+
+    background-color: transparent;
+
+    margin-right: 1rem;
+
+    @include tr(300);
+    @include dfc;
+
+    @include hover {
+      &:hover {
+        background-color: rgba(var(--w-clr), .1);;
+      }
+    }
+
+    &:active {
+      background-color: rgba(var(--w-clr), .08);
+    }
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+  &__menu {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+      height: $hamburger-height;
+      outline: none;
+      padding: 0;
+      pointer-events: initial;
+      position: relative;
+      vertical-align: middle;
+      width: $hamburger-width;
+      @include z-4;
+
+      span {
+        background-color: $hamburger-color;
+        content: "";
+        display: block;
+        height: 2px;
+        left: calc(50% - 13px );
+        position: absolute;
+        top: calc(50% - 1px );
+        transform-origin: 50% 50%;
+        transition: background-color 0.2s ease-in-out, top 0.2s 0.2s ease-out,  transform 0.2s linear;
+        width: 26px;
+
+        border-radius: 0.25rem;
+
+        &:before, &:after {
+          background-color: $hamburger-color;
+          content: "";
+          display: block;
+          height: 2px;
+          position: absolute;
+          transform-origin: 50% 50%;
+          transition: background-color 0.2s ease-in-out, top 0.2s 0.2s ease-out,  transform 0.2s linear;
+          width: 26px;
+
+          border-radius: inherit;
+        }
+
+        &:before {
+          top: 7px;
+        }
+
+        &:after {
+          top: -7px;
+        }
+      }
+
+      &.active-burger {
+        span {
+          background-color: transparent;
+          transition: background 0.2s ease-out;
+
+          &:before, &:after {
+            transition: top 0.2s ease-out, transform 0.2s 0.2s ease-out;
+          }
+
+          &:before {
+            top: 0;
+            transform: rotate3d(0, 0, 1, -45deg);
+          }
+
+          &:after {
+            top: 0;
+            transform: rotate3d(0, 0, 1, 45deg);
+          }
+        }
+      }
+  }
+}
+
+@include min-w($mob-mq) {
+  .header {
+    --logo-w: 8.75rem;
+  }
+}
+
+@include min-w($desk-xs-mq) {
+  .header {
+    --header-pt: 1.5rem;
+    --header-pb: 3rem;
+
+    &__navigation {
+      margin-left: clamp(1rem, 4.625vw, 4.625rem);
+    }
+    &__menu {
+      display: none;
+    }
+    &__log-in {
+      display: flex;
+    }
+    &__options {
+      margin-left: auto;
+
+      grid-gap: 1rem;
+    }
+    &__more-btn {
+      margin-right: unset;
+    }
+  }
+}
