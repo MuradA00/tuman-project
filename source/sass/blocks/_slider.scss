@@ -6,6 +6,25 @@
   --arrow-pos-x: 0.75rem;
   --arrow-block-icon-w: 0.625rem;
 
+  position: relative;
+
+  &::before {
+    @include pseudo;
+
+    width: 58.625rem;
+    height: 36.75rem;
+
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-image: $slider-shadow-encode;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
   &__body {
     overflow: visible !important;
   }
@@ -197,5 +216,9 @@
 @include min-w($tab-mq) {
   .slider {
     --slider-h: 43.125rem;
+
+    &::before {
+      top: 20.5rem;
+    }
   }
 }

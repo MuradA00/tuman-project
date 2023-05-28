@@ -14,8 +14,10 @@
     @@include('_news.html',{})
     @@include('_info.html',{})
     @@include('_partners.html',{})
-    @@include('_bottom.html',{})
-    @@include('_footer.html',{})
+    <div class="bottom-inner">
+      @@include('_bottom.html',{})
+      @@include('_footer.html',{})
+    </div>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script src="js/common.js"></script>

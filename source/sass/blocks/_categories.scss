@@ -19,11 +19,30 @@
 
     @include tr(300);
 
+    position: relative;
+
     @include hover {
       &:hover {
         border: 1px solid rgba(var(--r-clr), 1);
       }
     }
+  }
+  &__new-label {
+    position: absolute;
+
+    top: 1rem;
+    right: 1rem;
+
+    background-image: var(--pink-gradient);
+
+    box-shadow: 0px 0.25rem 1.25rem 0px rgba(var(--r-clr), 0.4);
+
+
+    border-radius: 6.25rem;
+
+    padding: 0.5rem 0.75rem;
+
+    letter-spacing: 0.02em;
   }
   &__heading {
     @extend %section-heading;

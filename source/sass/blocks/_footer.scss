@@ -1,5 +1,22 @@
 .footer {
   --link-svg-ratio: 1.5rem;
+  overflow: hidden;
+
+  position: relative;
+
+  &::before {
+    @include pseudo;
+
+    background-image: $footer-shadow-encode;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    width: 90.625rem;
+    height: 62.5rem;
+
+    top: 20%;
+    left: 30%;
+  }
 
   &__flex {
     @include fl(column-reverse, var(--flex-align), 1.5rem);
@@ -10,6 +27,8 @@
     border-top: 1px solid rgba(var(--w-clr), .1);
 
     max-width: 80.625rem;
+
+    position: relative;
   }
   &__col {
     display: flex;
@@ -69,6 +88,11 @@
 
 @include min-w($tab-mq) {
   .footer {
+
+    &::before {
+      top: 0;
+      left: 0;
+    }
     &__flex {
       flex-direction: row;
       grid-gap: clamp(5rem, 15.125vw, 15.125rem);

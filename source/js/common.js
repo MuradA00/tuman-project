@@ -3,7 +3,9 @@ const body = document.body,
       navLinks = document.querySelectorAll('.menu-nav__item a'),
       menu = document.querySelector('.menu'),
       html = document.documentElement,
-      menuList = document.querySelector('.menu__list');
+      menuList = document.querySelector('.menu__list'),
+      tabBtns = document.querySelectorAll('.live__selects-item'),
+      tabContents = document.querySelectorAll('.live__video-container');
 
 function closeMenuByClick() {
   if (navLinks.length > 0) {
@@ -96,5 +98,18 @@ if (Swiper) {
     pagination: {
       el: '.slider__pagination'
     }
+  })
+}
+
+if (tabBtns) {
+  tabBtns.forEach((tab, index) => {
+    tab.addEventListener('click', () => {
+      tabBtns.forEach(tab => {tab.classList.remove('live__selects-item--active')});
+
+      tab.classList.add('live__selects-item--active');
+
+      tabContents.forEach(content => {content.classList.remove('live__video-container--active')});
+      tabContents[index].classList.add('live__video-container--active')
+    })
   })
 }

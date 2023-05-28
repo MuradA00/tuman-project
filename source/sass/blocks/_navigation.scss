@@ -28,9 +28,29 @@
     flex-direction: column-reverse;
 
     grid-gap: var(--nav-row-gap);
+
+    position: relative;
+
+    &::before {
+      @include pseudo;
+
+      width: 40rem;
+      height: 27.25rem;
+
+      background-image: $live-shadow-encode;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      right: 0;
+      top: 50%;
+
+      transform: translateY(-50%)
+    }
   }
   &__grid {
     @include grid-cols(var(--nav-grid-cols), var(--nav-grid-gap));
+
+    position: relative;
   }
   &__grid-item {
     padding: var(--item-p);
@@ -174,6 +194,10 @@
 
     &__row {
       @include grid-cols(var(--row-grid-cols), var(--nav-row-gap));
+
+      &:before {
+        right: 25rem;
+      }
     }
     &__video {
       height: 100%;

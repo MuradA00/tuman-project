@@ -20,7 +20,7 @@ $hamburger-height: 3.125rem;
     max-width: var(--logo-w);
   }
   &__options {
-    @include fl(row, center, .5rem);
+    @include fl(row, center, 0rem);
 
     margin-left: unset;
   }
@@ -39,14 +39,26 @@ $hamburger-height: 3.125rem;
 
     background-color: transparent;
 
-    margin-right: 1rem;
+    margin-right: .5rem;
 
     @include tr(300);
     @include dfc;
 
+    position: relative;
+
     @include hover {
       &:hover {
         background-color: rgba(var(--w-clr), .1);;
+      }
+    }
+
+    &:hover {
+      .header__hidden-items {
+        opacity: 1;
+
+        pointer-events: all;
+
+        transform: translateY(0);
       }
     }
 
@@ -58,6 +70,32 @@ $hamburger-height: 3.125rem;
       width: 1rem;
       height: 1rem;
     }
+  }
+  &__hidden-items {
+    position: absolute;
+
+    @include z-2;
+
+    width: max-content;
+
+    top: 0;
+
+    padding-top: 3.5rem;
+
+    @include tr(300);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform: translateY(0.375rem);
+  }
+  &__hidden-links {
+    background-color: rgba(var(--w-clr), .1);
+
+    border: 1px solid rgba(var(--w-clr), .2);
+
+    border-radius: 0.5rem;
   }
   &__menu {
       background-color: transparent;
@@ -159,6 +197,22 @@ $hamburger-height: 3.125rem;
     }
     &__more-btn {
       margin-right: unset;
+    }
+  }
+}
+
+@include min-w($desk-2sm-mq) {
+  .header {
+    &__hidden-items {
+      display: none;
+    }
+  }
+}
+
+@include max-w($desk-xs-mq) {
+  .header {
+    &__hidden-items {
+      display: none;
     }
   }
 }
