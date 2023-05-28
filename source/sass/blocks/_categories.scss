@@ -43,6 +43,9 @@
     padding: 0.5rem 0.75rem;
 
     letter-spacing: 0.02em;
+    font-weight: 600;
+    font-size: var(--text-sm);
+    text-transform: uppercase;
   }
   &__heading {
     @extend %section-heading;
