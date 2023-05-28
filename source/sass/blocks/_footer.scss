@@ -21,10 +21,12 @@
   &__flex {
     @include fl(column-reverse, var(--flex-align), 1.5rem);
   }
-  &__body {
+  &__inner {
     padding: 2rem 0 max(2.75vw, 2.75rem) 0;
 
     border-top: 1px solid rgba(var(--w-clr), .1);
+  }
+  &__body {
 
     max-width: 80.625rem;
 
