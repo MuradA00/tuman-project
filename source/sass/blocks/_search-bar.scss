@@ -43,12 +43,12 @@
     width: 100%;
     height: 100%;
 
-    color: rgba(var(--w-clr), .4);
+    color: rgba(var(--w-clr), 1);
 
     font-size: var(--text-base);
 
     &::placeholder {
-      color: inherit;
+      color: rgba(var(--w-clr), .4);
     }
     &:focus {
       .search-bar__icon {

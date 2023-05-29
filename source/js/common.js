@@ -86,15 +86,16 @@ if (Swiper) {
     spaceBetween: 20,
     speed: 1000,
 
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: true
-    },
+    // autoplay: {
+    //   delay: 5000,
+    //   disableOnInteraction: true
+    // },
 
     navigation: {
       nextEl: '.slider__arrow--next',
       prevEl: '.slider__arrow--prev'
     },
+    parallax: true,
     pagination: {
       el: '.slider__pagination'
     }

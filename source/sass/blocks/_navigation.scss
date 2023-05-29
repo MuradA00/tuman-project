@@ -58,6 +58,20 @@
     border-radius: var(--radius);
 
     border: 1px solid rgba(var(--w-clr), .1);
+
+    flex-direction: column;
+
+    @include tr(300);
+
+    @include hover {
+      &:hover {
+        border: 1px solid rgba(var(--r-clr), 1);
+
+        .navigation__grid-item-link {
+          color: rgba(var(--w-clr), 1);
+        }
+      }
+    }
   }
   &__grid-item-image {
 
@@ -81,12 +95,6 @@
     @extend %default-text;
 
     @include tr(300);
-
-    @include hover {
-      &:hover {
-        color: rgba(var(--w-clr), 1);
-      }
-    }
   }
   &__video {
     position: relative;

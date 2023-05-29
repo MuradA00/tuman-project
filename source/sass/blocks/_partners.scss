@@ -14,6 +14,20 @@
 
     border-radius: 1.5rem;
     border: 1px solid rgba(var(--w-clr), .1);
+
+    flex-direction: column;
+
+    @include tr(300);
+
+    @include hover {
+      &:hover {
+        border: 1px solid rgba(var(--r-clr), 1);s
+
+        .partners__grid-item-name {
+          color: rgba(var(--w-clr), 1);
+        }
+      }
+    }
   }
   &__grid-item-image {
     height: var(--item-image-h);
@@ -41,12 +55,6 @@
     justify-content: center;
 
     @include tr(300);
-
-    @include hover {
-      &:hover {
-        color: rgba(var(--w-clr), 1);
-      }
-    }
   }
 }
 

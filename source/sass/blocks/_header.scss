@@ -20,9 +20,9 @@ $hamburger-height: 3.125rem;
     max-width: var(--logo-w);
   }
   &__options {
-    @include fl(row, center, 0rem);
+    @include fl(row, center, .5rem);
 
-    margin-left: unset;
+    margin-left: 0;
   }
   &__log-in {
     @include btn(var(--main-btn-py), var(--main-btn-px), var(--dark-btn-clr));
@@ -62,10 +62,6 @@ $hamburger-height: 3.125rem;
       }
     }
 
-    &:active {
-      background-color: rgba(var(--w-clr), .08);
-    }
-
     svg {
       width: 1rem;
       height: 1rem;
@@ -90,12 +86,23 @@ $hamburger-height: 3.125rem;
 
     transform: translateY(0.375rem);
   }
-  &__hidden-links {
-    background-color: rgba(var(--w-clr), .1);
+  &__hidden-item {
+    @include tr(300);
 
-    border: 1px solid rgba(var(--w-clr), .2);
+    @include hover {
+      &:hover {
+        background-color: rgba(var(--w-clr), .115);
+      }
+    }
+  }
+  &__hidden-links {
+    background-color: rgba(var(--bg-body), .5);
+
+    border: 1px solid rgba(var(--w-clr), .15);
 
     border-radius: 0.5rem;
+
+    overflow: hidden;
   }
   &__menu {
       background-color: transparent;
@@ -181,9 +188,6 @@ $hamburger-height: 3.125rem;
     --header-pt: 1.5rem;
     --header-pb: 3rem;
 
-    &__navigation {
-      margin-left: clamp(1rem, 4.625vw, 4.625rem);
-    }
     &__menu {
       display: none;
     }
@@ -191,28 +195,21 @@ $hamburger-height: 3.125rem;
       display: flex;
     }
     &__options {
-      margin-left: auto;
-
       grid-gap: 1rem;
-    }
-    &__more-btn {
-      margin-right: unset;
     }
   }
 }
 
 @include min-w($desk-2sm-mq) {
   .header {
-    &__hidden-items {
-      display: none;
+    &__more-btn {
+      margin-right: unset;
     }
-  }
-}
-
-@include max-w($desk-xs-mq) {
-  .header {
-    &__hidden-items {
-      display: none;
+    &__navigation {
+      margin-left: clamp(1rem, 4.625vw, 4.625rem);
+    }
+    &__options {
+      margin-left: auto;
     }
   }
 }

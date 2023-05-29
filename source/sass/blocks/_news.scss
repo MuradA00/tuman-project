@@ -20,6 +20,16 @@
     background-color: rgba(var(--w-clr), .04);
 
     border-radius: 1.5rem;
+
+    flex-direction: column;
+
+    @include hover {
+      &:hover {
+        .news__item-image img, svg, picture {
+          transform: scale(1.05);
+        }
+      }
+    }
   }
   &__item-image {
     width: 100%;
@@ -42,15 +52,7 @@
       top: 0;
       left: 0;
 
-      @include tr(400);
-    }
-
-    @include hover {
-      &:hover {
-        img, picture, svg {
-          transform: scale(1.05);
-        }
-      }
+      @include tr(200);
     }
   }
   &__item-info {
