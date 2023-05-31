@@ -26,6 +26,8 @@
     border-radius: 0.25rem;
 
     overflow: hidden;
+
+    background-color: rgba(var(--bg-body), .8);
   }
   &__item {
     a {
