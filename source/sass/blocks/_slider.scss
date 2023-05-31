@@ -23,6 +23,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
   }
 
   &__body {
@@ -105,6 +106,8 @@
 
     will-change: opacity;
 
+    overflow: hidden;
+
     padding: var(--item-py) var(--item-px);
 
     display: flex;
@@ -125,12 +128,35 @@
       border-radius: inherit;
 
       background-image: var(--slider-gradient);
+
+      z-index: 2;
+    }
+  }
+  &__image-wrapper {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
     }
   }
   &__item-info {
     --section-heading-m: 0;
 
     position: relative;
+
+    z-index: 2;
 
     max-width: 63.75rem;
 
@@ -141,6 +167,9 @@
     @extend %section-heading;
 
     grid-gap: 1rem;
+
+  }
+  &__image-wrapper {
 
   }
   &__item-heading {
@@ -154,7 +183,7 @@
   &__pagination {
     position: relative !important;
 
-    @include z-1;
+    @include z-3;
 
     left: 50% !important;
 
@@ -219,6 +248,30 @@
 
     &::before {
       top: 20.5rem;
+    }
+  }
+}
+
+@include max-w($desk-xs-mq) {
+  .slider {
+    &__image-wrapper {
+      img, picture, svg {
+        transform: translate(0) !important;
+      }
+    }
+  }
+}
+
+@include min-w($desk-xs-mq) {
+  .slider {
+    &__image-back {
+      scale: 1.2;
+    }
+    &__image-middle {
+      scale: 1.25;
+    }
+    &__image-front {
+      scale: 1.15;
     }
   }
 }
