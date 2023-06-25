@@ -23,6 +23,8 @@
 
     flex-direction: column;
 
+    @include card-hover;
+
     @include hover {
       &:hover {
         .news__item-image img, svg, picture {

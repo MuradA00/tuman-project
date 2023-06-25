@@ -1,7 +1,8 @@
 .search-bar {
   --search-icon-ratio: 2rem;
-  --input-radius: 3rem;
+  --input-radius: 2rem;
   --input-pl: 1.5rem;
+  --results-block-spacing-top: 3.8125rem;
 
   @include m(b, 1rem);
 
@@ -17,6 +18,68 @@
     border-radius: var(--input-radius);
 
     border: 1px solid rgba(var(--w-clr), .04);
+
+    @include tr(300);
+
+    &--active {
+      border-radius: 2.5rem 2.5rem 0 0;
+
+      border-bottom: 1px solid transparent;
+    }
+  }
+  &__results {
+    position: absolute;
+
+    top: 100%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding-left: var(--input-pl);
+
+    width: calc(100% + 0.125rem);
+
+    background-color: rgba(var(--w-clr), .04);
+
+    @include z-2;
+
+    border-radius: 0 0 var(--input-radius) var(--input-radius);
+
+    @include tr(300);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    &-list {
+      max-height: 20rem;
+
+      overflow-y: scroll;
+    }
+
+    &--active {
+      border: 1px solid rgba(var(--w-clr), .04);
+
+      border-top: 1px solid transparent;
+
+      opacity: 1;
+
+      visibility: visible;
+    }
+
+    &-item {
+      padding: .75rem 0;
+
+      cursor: pointer;
+
+      @include tr(200);
+
+      @include hover {
+        &:hover {
+          color: rgba(var(--r-clr), 1);
+        }
+      }
+    }
   }
   &__icon {
     position: absolute;
@@ -69,7 +132,9 @@
 
 @include min-w($mob-mq){
   .search-bar {
+    --input-radius: 3rem;
     --input-pl: calc(2rem + var(--search-icon-ratio));
+    --results-block-spacing-top: 4.5625rem;
 
     &__input {
       font-size: var(--text-md);

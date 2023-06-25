@@ -5,7 +5,39 @@ const body = document.body,
       html = document.documentElement,
       menuList = document.querySelector('.menu__list'),
       tabBtns = document.querySelectorAll('.live__selects-item'),
-      tabContents = document.querySelectorAll('.live__video-container');
+      tabContents = document.querySelectorAll('.live__video-container'),
+      header = document.querySelector('.header'),
+      categoriesBlock = document.querySelector('.categories'),
+      searchBarInput = document.querySelector('.search-bar__block input'),
+      searchBarResults = document.querySelector('.search-bar__results');
+      const searchBarBlock = document.querySelector('.search-bar__block');
+      const searchBarResultsList = searchBarResults.querySelector('ul');
+
+if (categoriesBlock) {
+
+  searchBarInput.addEventListener('input', () => {
+    searchBarBlock.classList.add('search-bar__block--active')
+
+    if (searchBarBlock.classList.contains('search-bar__block--active')) {
+      searchBarResults.classList.add('search-bar__results--active')
+
+      console.log(searchBarInput.value);
+    }
+    if (searchBarInput.value.length === 0) {
+      searchBarBlock.classList.remove('search-bar__block--active');
+      searchBarResults.classList.remove('search-bar__results--active')
+    }
+
+  })
+
+  categoriesBlock.addEventListener('click', (e) => {
+    if (e.target === categoriesBlock || e.target === document.querySelector('.categories__body')) {
+      searchBarBlock.classList.remove('search-bar__block--active');
+      searchBarResults.classList.remove('search-bar__results--active')
+    }
+  })
+}
+
 
 function closeMenuByClick() {
   if (navLinks.length > 0) {
@@ -114,3 +146,4 @@ if (tabBtns) {
     })
   })
 }
+

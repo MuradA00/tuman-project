@@ -23,11 +23,7 @@
 
     flex-direction: column;
 
-    @include hover {
-      &:hover {
-        border: 1px solid rgba(var(--r-clr), 1);
-      }
-    }
+    @include card-hover;
   }
   &__new-label {
     position: absolute;

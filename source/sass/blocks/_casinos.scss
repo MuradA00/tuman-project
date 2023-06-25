@@ -18,6 +18,8 @@
     border: 1px solid rgba(var(--w-clr), .1);
 
     position: relative;
+
+    @include card-hover;
   }
   &__rating {
     position: absolute;

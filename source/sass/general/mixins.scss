@@ -285,3 +285,15 @@
     position: relative;
   }
 }
+
+@mixin card-hover {
+  transition: all 200ms ease-in-out;
+
+  @include hover {
+    &:hover {
+      transform: scale(1.025);
+
+      box-shadow: 0 0 1rem rgba(var(--r-clr), 1);
+    }
+  }
+}

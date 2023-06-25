@@ -10,6 +10,7 @@
   --mag-clr: 196, 20, 113;
   --dark-btn-clr: 7, 11, 42;
 
+
   --cont-width: 106.25rem;
   --cont-px: 0.75rem;
 
@@ -35,6 +36,8 @@
   --casinos-grid-gap: 0.75rem;
   --casinos-item-py: 1.5rem;
   --casinos-item-px: 1rem;
+
+  --header-spacing: 4.875rem;
 
   --btn-transition: cubic-bezier(0,1,1,1);
 
@@ -86,5 +89,11 @@ $footer-shadow-encode: url("data:image/svg+xml,%3Csvg width='1868' height='1464'
 @include min-w($desk-sm-mq) {
   :root {
     --casinos-grid-cols: 4;
+  }
+}
+
+@include min-w($desk-2sm-mq) {
+  :root {
+    --header-spacing: 7.5rem;
   }
 }

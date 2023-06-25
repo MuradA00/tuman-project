@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" id="header">
   <div class="header__container container">
     <div class="header__row">
       <a href="/" class="header__logo">
@@ -106,18 +106,45 @@
             <span>EN</span>
           </div>
           <div class="lang__hidden">
-            <ul class="lang__list">
-              <li class="lang__item">
-                <a href="#">
-                  GER
-                </a>
-              </li>
-              <li class="lang__item">
-                <a href="#">
-                  FR
-                </a>
-              </li>
-            </ul>
+            <div class="lang__options">
+              <div class="lang__options-item">
+                <div class="lang__options-heading">
+                  Language
+                </div>
+                <div class="dropdown">
+                  <div class="dropdown__wrapper">
+                    <button class="dropdown__button">
+                      English
+                    </button>
+                    <span class="dropdown__arrow"></span>
+                  </div>
+                  <ul class="dropdown__list">
+                    <li data-value="Deutsch" class="dropdown__list-item">Deutsch</li>
+                    <li data-value="Français" class="dropdown__list-item">Français</li>
+                    <li data-value="Русский" class="dropdown__list-item">Русский</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="lang__options-item">
+                <div class="lang__options-heading">
+                  COUNTRY OF RESIDENCE
+                </div>
+                <div class="dropdown">
+                  <div class="dropdown__wrapper">
+                    <button class="dropdown__button">
+                      United Kingdom
+                    </button>
+                    <span class="dropdown__arrow"></span>
+                  </div>
+                  <ul class="dropdown__list">
+                    <li data-value="Germany" class="dropdown__list-item">Germany</li>
+                    <li data-value="France" class="dropdown__list-item">France</li>
+                    <li data-value="Russia" class="dropdown__list-item">Russia</li>
+                  </ul>
+                </div>
+              </div>
+              <button class="lang__apply"><span>Apply</span></button>
+            </div>
           </div>
         </div>
         <a href="#" class="header__log-in">

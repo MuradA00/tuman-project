@@ -8,6 +8,9 @@ $hamburger-height: 3.125rem;
   --logo-w: 7rem;
 
   padding: var(--header-pt) 0 var(--header-pb) 0;
+
+  @include tr(300);
+
   &__row {
     @include fl(row, center, 0);
   }
@@ -116,7 +119,7 @@ $hamburger-height: 3.125rem;
       position: relative;
       vertical-align: middle;
       width: $hamburger-width;
-      @include z-4;
+      @include z-3;
 
       span {
         background-color: $hamburger-color;
@@ -202,6 +205,9 @@ $hamburger-height: 3.125rem;
 
 @include min-w($desk-2sm-mq) {
   .header {
+    &--fixed {
+      --header-pb: 1.5rem;
+    }
     &__more-btn {
       margin-right: unset;
     }
