@@ -2,13 +2,16 @@
   --btn-background: #283151;
   --gradient-start: #fd035f;
   --gradient-end: #6c2c8c;
+  --lang-clr: 125, 130, 174;
+  --lang-bg: 22, 29, 78;
+  --border-clr: 65, 71, 111;
 
   position: relative;
 
   cursor: default;
 
   &__hidden {
-    --hidden-w: 20rem;
+    --hidden-w: 15.5rem;
 
     position: absolute;
 
@@ -32,12 +35,11 @@
   &__options {
     --options-clr: 107, 107, 107;
 
-    background-color: rgba(var(--bg-body), 1);
+    background-color: rgba(var(--lang-bg), 1);
 
-    padding: 2.5rem 1rem 1rem;
+    padding: 1.875rem;
 
     border-radius: 1rem;
-    border: 1px solid rgba(var(--r-clr), 1);
 
     position: relative;
 
@@ -45,13 +47,14 @@
 
     &-item {
       &:not(:last-child) {
-        @include m(b, 1rem);
+        @include m(b, 1.25rem);
       }
     }
     &-heading {
-      text-transform: uppercase;
-      font-size: clamp(var(--text-base), 1.125vw, var(--text-md));
+      font-size: var(--text-base);
       font-weight: 500;
+
+      color: rgba(var(--lang-clr), 1);
 
       @include m(b, 1rem);
     }
@@ -62,7 +65,7 @@
   &__apply {
     --apply-btn-p: .75rem;
 
-    @include btn(var(--apply-btn-p), var(--apply-btn-p), var(--pink-gradient));
+    @include btn(var(--apply-btn-p), var(--apply-btn-p), var(--dark-btn-clr));
 
     width: 100%;
   }
@@ -85,17 +88,15 @@
   &__button {
     color: rgba(var(--w-clr), 1);
 
-    border: 1px solid rgba(var(--r-clr), 1);
+    border: 1px solid rgba(var(--border-clr), 1);
 
-    border-radius: .75rem;
+    border-radius: 1.875rem;
 
-    padding: .5rem 2.5rem .5rem .5rem;
+    padding: .8rem 1.25rem;
 
     width: 100%;
 
     font-size: var(--text-base);
-    text-transform: uppercase;
-    letter-spacing: .1rem;
 
     word-break: break-all;
 
@@ -104,17 +105,17 @@
   &__list {
     position: absolute;
 
-    top: calc(2.5rem + .5rem);
+    top: calc(2.5rem + 1rem);
 
-    background-color: var(--btn-background);
+    background-color: rgba(var(--lang-bg), 1);
 
     width: 100%;
 
-    border: 2px solid rgba(var(--r-clr), 1);
+    border: 1px solid rgba(var(--border-clr), 1);
 
     opacity: 0;
 
-    border-radius: .75rem;
+    border-radius: 1rem;
 
     overflow: hidden;
 
@@ -135,7 +136,7 @@
     }
 
     &-item {
-      padding: .5rem;
+      padding: .5rem 1.25rem;
 
       cursor: pointer;
 
@@ -149,12 +150,7 @@
     }
   }
   &__arrow {
-    position: absolute;
-
-    right: 1rem;
-    top: calc(1.25rem - (var(--arrow-height) / 2));
-
-    @include arrow(rgba(var(--w-clr), .5));
+    display: none;
   }
 }
 

@@ -28,7 +28,9 @@
     }
   }
   &__results {
-    position: absolute;
+    position: absolute !important;
+
+    overflow: hidden;
 
     top: 100%;
     left: 50%;
@@ -51,10 +53,16 @@
 
     visibility: hidden;
 
+    backdrop-filter: blur(0.25rem);
+
     &-list {
-      max-height: 20rem;
+      max-height: 14rem;
 
       overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     &--active {
@@ -152,3 +160,18 @@
   }
 }
 
+.simplebar-track.simplebar-vertical {
+  width: 0.625rem !important;
+}
+
+.simplebar-track {
+  right: .25rem;
+}
+
+.simplebar-scrollbar::before {
+  opacity: 1 !important;
+}
+
+.simplebar-scrollbar:before {
+  background: rgba(var(--w-clr), .25) !important;
+}
