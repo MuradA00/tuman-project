@@ -87,3 +87,15 @@
     }
   }
 }
+
+@include max-w(25em) {
+  .bottom {
+    .header {
+      &__hidden-items {
+        left: 0;
+
+        transform: translateX(0) translateY(.375rem);
+      }
+    }
+  }
+}
