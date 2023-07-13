@@ -5,12 +5,6 @@
 
   @include m(b, 4rem);
 
-  .header {
-    &__hidden-links {
-      background-color: rgba(var(--b-clr), 1);
-    }
-  }
-
   &__logo {
     max-width: 10rem;
   }

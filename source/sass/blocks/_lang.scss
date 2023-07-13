@@ -92,7 +92,7 @@
 
     border-radius: 1.875rem;
 
-    padding: .8rem 1.25rem;
+    padding: .8rem calc(1.25rem + 1rem) .8rem 1.25rem;
 
     width: 100%;
 
@@ -101,6 +101,8 @@
     word-break: break-all;
 
     position: relative;
+
+    text-align: left;
   }
   &__list {
     position: absolute;
@@ -144,13 +146,20 @@
 
       @include hover {
         &:hover {
-          background-color: rgba(var(--w-clr), .2);
+          background-color: rgba(var(--w-clr), .4);
         }
       }
     }
   }
   &__arrow {
-    display: none;
+    @include arrow(rgba(var(--w-clr), .2));
+
+    position: absolute;
+
+    top: 50%;
+    right: 1rem;
+
+    transform: translateY(-50%);
   }
 }
 

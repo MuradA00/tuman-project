@@ -293,32 +293,30 @@
 
   overflow: hidden;
 
-  &::before {
-    @include pseudo;
+  // &::before {
+  //   @include pseudo;
 
-    width: 25%;
-    height: 120%;
+  //   width: 25%;
+  //   height: 120%;
 
-    // transform: rotate(-20deg);
+  //   // transform: rotate(-20deg);
 
-    opacity: 0.8;
-    background-image: linear-gradient(180deg, rgba(var(--w-clr), 0), rgba(var(--w-clr), 1) 40%, rgba(var(--w-clr), 0.6) 60%, rgba(255, 255, 255, 0));
+  //   opacity: 0.8;
+  //   background-image: linear-gradient(180deg, rgba(var(--w-clr), 0), rgba(var(--w-clr), 1) 40%, rgba(var(--w-clr), 0.6) 60%, rgba(255, 255, 255, 0));
 
-    left: -100%;
-    top: 0;
+  //   left: -100%;
+  //   top: 0;
 
-    transform: skew(-20deg);
-    transition: 350ms ease;
+  //   transform: skew(-20deg);
+  //   transition: 350ms ease;
 
-  }
+  // }
 
   @include hover {
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.02);
 
-      &::before {
-        left: calc(100% + 40%);
-      }
+      box-shadow: 0 0 1rem 0.375rem rgba(var(--r-clr), .75);
     }
   }
 }
