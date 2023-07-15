@@ -8,6 +8,9 @@
   &__logo {
     max-width: 10rem;
   }
+  &__hidden {
+    backdrop-filter: blur(2px);
+  }
   &__row {
     display: flex;
     flex-direction: column;

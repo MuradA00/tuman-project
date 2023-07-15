@@ -119,7 +119,7 @@ $hamburger-height: 3.125rem;
       position: relative;
       vertical-align: middle;
       width: $hamburger-width;
-      @include z-3;
+      @include z-4;
 
       span {
         background-color: $hamburger-color;
